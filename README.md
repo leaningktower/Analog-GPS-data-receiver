@@ -10,7 +10,7 @@ Another impressive analog GPS receiver comes from the book [3] of Dan Doberstein
 
 <img width="1100" alt="Pasted Graphic 1" src="https://github.com/leaningktower/Analog-GPS-data-receiver/assets/17516571/9cb75191-05ad-4593-9742-cd3b5acdf3d3">
 
-The block diagram of the receiver is shown above. The receiver includes 5 different part, the 1st mixer board, 1st LO board, 2nd mixer and correlation board, IF signal processing board and FPGA interfacing board (not shown). It is indicated by the dashed blocks in the diagram.
+The block diagram of the receiver is shown above. The receiver includes 5 different parts, the 1st mixer board, 1st LO board, 2nd mixer and correlation board, IF signal processing board and FPGA interfacing board (not shown). They are indicated by the dashed blocks in the diagram.
 
 A commercial GPS antenna with internal amplifier and filters is used that can be easily find on AliExpress and Amazon. The first IF is set to around 60 MHz, which is relatively high to avoid the interference between antenna and local oscillator with poor shielding. LNA (BGA420) is placed before the 1st mixer (MAX2680) to decrease the noise figure of the receiver with a long coax cable between the antenna and receiver.
 
@@ -18,7 +18,7 @@ The 1st LO is based on an old fashioned integer-N frequency synthesiser (ADF4113
 
 A 4th order LC filter with ~10 MHz bandwidth is placed after the 1st mixer, which removes most of the LO leakage of the first mixer. The LNA after the 1st mixer is optional but it is necessary for the impedance matching of the 1st mixer’s output.  The 2nd IF is 10.7 MHz and use a random 48 MHz oscillator as the 2nd LO. Instead of single tone signal, the 2nd LO is modulated with the dithered C/A code using Tau dither method, which switches the C/A code between the early and late phase at a frequency around 166 Hz. When the local C/A code is synchronised to the received signal, the DSSS signal is demodulated in to a Binary Phase-shift keying (BPSK) signal with 50 Hz chip rate and recovered from the thermal noise level. The down converted 10.7 MHz 2nd IF signal is sent to a crystal filter with 1.8 kHz bandwidth centred at 10.699 MHz.
 
-The IF signal processing is based on SA604/SA605 FM receiver chip. The GPS signal strength is around -50 dBm before the IF signal processing board, which is more than enough for this chip with 90 dB dynamic range. The IF limiter output is filtered and sent to the comparator for finding out the IF frequency and used for tracking the doppler shift. The limiter output is also sent to another 10.7 MHz crystal used for quadrature detector, which converts the phase flip of the BPSK signal to the pulses at audio output of the detector. On the other hand, the amplitude of the signal is indicated by the RSSI output, two comparator is used to determine whether the signal strength is strong enough for the code phase or doppler frequency locking. A 166 Hz active band-pass filter is used to tell the FPGA to slow down or speed up the NCO to synchronise the code phase.
+The IF signal processing is based on SA604/SA605 FM receiver chip. The GPS signal strength is around -50 dBm before the IF signal processing board, which is more than enough for this chip with 90 dB dynamic range. The IF limiter output is filtered and sent to the comparator for finding out the IF frequency and used for tracking the doppler shift. The limiter output is also sent to another 10.7 MHz crystal used for quadrature detector, which converts the phase flip of the BPSK signal to the pulses at audio output of the detector. On the other hand, the amplitude of the signal is indicated by the RSSI output, two comparators are used to determine whether the signal strength is strong enough for the code phase or doppler frequency locking. A 166 Hz active band-pass filter is used to tell the FPGA to slow down or speed up the NCO to synchronise the code phase.
 
 ### FPGA Architecture
 
@@ -79,7 +79,7 @@ The NAV data output (yellow) and quadrature detector output (cyan) of the GPS da
 
 
 ______________________________________________________________________________________________________________
-Reference:
+References:
 
 [1] GPS/GLONASS receiver by Matjaž Vidmar, S53MV; https://lea.hamradio.si/~s53mv/navsats/theory.html
 
