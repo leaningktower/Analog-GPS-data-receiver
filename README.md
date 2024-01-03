@@ -83,6 +83,6 @@ References:
 
 [1] GPS/GLONASS receiver by Matjaž Vidmar, S53MV; https://lea.hamradio.si/~s53mv/navsats/theory.html
 
-[2] Homemade GPS Receiver by Andrew Holme; http://www.aholme.co.uk/GPS/Main.html
+[2] Homemade GPS Receiver by Andrew Holme; http://www.aholme.co.uk/GPS/Main.htm
 
 [3] PRINCIPLES OF GPS RECEIVERS - A HARDWARE APPROACH by Dan Doberstein; http://www.dkdinst.com/gpstxt.html
